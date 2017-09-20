@@ -1,5 +1,5 @@
 docker-ce
-======
+=========
 
 [![Build Status](https://travis-ci.org/eendroroy/ansible-role-docker-ce.svg?branch=master)](https://travis-ci.org/eendroroy/ansible-role-docker-ce)
 
