@@ -1,8 +1,8 @@
 ---
-- include: dependencies/apt.yml
+- include_tasks: dependencies/apt.yml
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- include: dependencies/yum.yml
+- include_tasks: dependencies/yum.yml
   when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Install docker-ce APT
@@ -11,7 +11,7 @@
     state: installed
     force: yes
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: 0
   with_items:
       - docker-ce
   become: true
@@ -24,7 +24,7 @@
     state: installed
     force: yes
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: 0
   with_items:
       - docker-ce
   become: true

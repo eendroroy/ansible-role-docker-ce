@@ -7,14 +7,19 @@
     update_cache: yes
     cache_valid_time: 3600
   with_items:
-      - docker
-      - docker-engine
-      - docker.io
+    - docker
+    - docker-engine
+    - docker.io
   become: true
 
 - name: Determine revision
-  raw: echo -ne `uname -r`
+  raw: "echo -n `uname -r`"
   register: revision
+  ignore_errors: yes
+
+- name: Determine release
+  raw: lsb_release -a 2>/dev/null | grep Codename | awk '{printf("%s"), $2}'
+  register: release
   ignore_errors: yes
 
 - name: Install dependencies for Ubuntu
@@ -25,12 +30,12 @@
     update_cache: yes
     cache_valid_time: 3600
   with_items:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-      - linux-image-extra-virtual
-      - linux-image-extra-{{ revision.stdout }}
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - linux-image-extra-virtual
+    - linux-image-extra-{{ revision.stdout }}
   become: true
 
 - name: Add key
