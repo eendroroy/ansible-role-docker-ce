@@ -6,7 +6,6 @@ docker-ce
 [![Contributors](https://img.shields.io/github/contributors/eendroroy/ansible-role-docker-ce.svg)](https://github.com/eendroroy/ansible-role-docker-ce/graphs/contributors)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/eendroroy/ansible-role-docker-ce/master.svg)](https://github.com/eendroroy/ansible-role-docker-ce)
 [![license](https://img.shields.io/github/license/eendroroy/ansible-role-docker-ce.svg)](https://github.com/eendroroy/ansible-role-docker-ce/blob/master/LICENSE)
-
 [![GitHub issues](https://img.shields.io/github/issues/eendroroy/ansible-role-docker-ce.svg)](https://github.com/eendroroy/ansible-role-docker-ce/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/eendroroy/ansible-role-docker-ce.svg)](https://github.com/eendroroy/ansible-role-docker-ce/issues?q=is%3Aissue+is%3Aclosed)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/eendroroy/ansible-role-docker-ce.svg)](https://github.com/eendroroy/ansible-role-docker-ce/pulls)
