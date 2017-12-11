@@ -1,2 +1,6 @@
-.vagrant
-tests/test.retry
+**/.vagrant
+**/*.log
+**/*.retry
+.python-version
+tmp/*
+log/*
