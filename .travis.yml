@@ -10,6 +10,12 @@ matrix:
     - os: ubuntu
       dist: xenial
       sudo: required
+    - os: centos
+      dist: 6
+      sudo: required
+    - os: rhel
+      dist: 6
+      sudo: required
 
 # Install ansible
 addons:
@@ -18,6 +24,9 @@ addons:
     - python-pip
 
 install:
+  # OS
+  - uname -a
+
   # Install ansible
   - pip install -U pip
   - pip install -U ansible
