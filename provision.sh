@@ -1,11 +1,16 @@
-apt-get -y update
-apt-get -y upgrade
-apt-get -y dist-upgrade
-apt-get install -y python python-pip python-dev \
-  libyaml-dev libpython2.7-dev \
-  libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
-sudo pip install -U pip
-sudo pip install -U ansible
+if which apt-get > /dev/null 2>&1; then
+  apt-get -y update
+  apt-get install -y python python-pip python-dev
+  sudo pip install -U pip
+  sudo pip install -U ansible
+fi
+
+if which yum > /dev/null 2>&1; then
+  yum -y update
+  yum install -y epel-release
+  yum install -y ansible
+fi
+
 ansible --version
 ansible-playbook /role/ansible-role-docker-ce/tests/test.yml -i /role/ansible-role-docker-ce/tests/inventory --syntax-check
 ansible-playbook /role/ansible-role-docker-ce/tests/test.yml -i /role/ansible-role-docker-ce/tests/inventory
