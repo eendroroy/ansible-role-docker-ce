@@ -4,41 +4,27 @@ python: "2.7"
 
 matrix:
   include:
-    - os: ubuntu
+    - os: linux
       dist: trusty
       sudo: required
-    - os: ubuntu
+    - os: linux
       dist: xenial
       sudo: required
-    - os: centos
-      dist: 6
-      sudo: required
-    - os: rhel
-      dist: 6
-      sudo: required
 
-# Install ansible
 addons:
   apt:
     packages:
     - python-pip
 
 install:
-  # OS
-  - uname -a
-
   # Install ansible
   - pip install -U pip
   - pip install -U ansible
-
-  # Check ansible version
-  - ansible --version
 
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
   - ansible-playbook tests/test.yml -i tests/inventory
 
