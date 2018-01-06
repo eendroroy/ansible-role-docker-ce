@@ -2,8 +2,14 @@
 language: python
 python: "2.7"
 
-# Use the new container infrastructure
-sudo: required
+matrix:
+  include:
+    - os: ubuntu
+      dist: trusty
+      sudo: required
+    - os: ubuntu
+      dist: xenial
+      sudo: required
 
 # Install ansible
 addons:
