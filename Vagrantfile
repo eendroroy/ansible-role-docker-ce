@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.synced_folder ".", "/role/ansible-role-docker-ce"
+  config.vm.synced_folder ".", "/role/ansible-role-docker-ce", nfs: true
   config.vm.provider "virtualbox" do |vb|
   	vb.gui = false
   	vb.memory = 256
