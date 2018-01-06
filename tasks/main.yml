@@ -22,9 +22,7 @@
   yum:
     name: '{{ item }}'
     state: installed
-    force: yes
     update_cache: yes
-    cache_valid_time: 0
   with_items:
       - docker-ce
   become: true
