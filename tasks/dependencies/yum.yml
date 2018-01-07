@@ -1,5 +1,5 @@
 ---
-- name: Install dependencies for CenoOS
+- name: Install dependencies for {{ ansible_distribution }}-{{ ansible_distribution_release }}
   yum:
     name: '{{ item }}'
     state: installed
