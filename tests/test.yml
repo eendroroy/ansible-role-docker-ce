@@ -2,4 +2,5 @@
 - hosts: localhost
   connection: local
   roles:
-    - { role: /role/ansible-role-docker-ce }
+    - { role: ../../ansible-role-docker-ce }
+
