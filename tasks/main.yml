@@ -1,30 +1,13 @@
 ---
 - include_tasks: dependencies/apt.yml
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when: ansible_os_family == 'Debian'
 
 - include_tasks: dependencies/yum.yml
-  when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: ansible_os_family == 'RedHat'
 
-- name: Install docker-ce APT
-  apt:
-    name: '{{ item }}'
-    state: installed
-    force: yes
-    update_cache: yes
-    cache_valid_time: 0
-  with_items:
-      - docker-ce
-  become: true
-  notify: restart docker
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- include_tasks: install/apt.yml
+  when: ansible_os_family == 'Debian'
 
-- name: Install docker-ce YUM
-  yum:
-    name: '{{ item }}'
-    state: installed
-    update_cache: yes
-  with_items:
-      - docker-ce
-  become: true
-  notify: restart docker
-  when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" or ansible_distribution == 'Red Hat Enterprise Linux'
+- include_tasks: install/yum.yml
+  when: ansible_os_family == 'RedHat'
+

@@ -1,0 +1,11 @@
+---
+- name: Install docker-ce {{ ansible_distribution }}-{{ ansible_distribution_release }}
+  yum:
+    name: '{{ item }}'
+    state: installed
+    update_cache: yes
+  with_items:
+      - docker-ce
+  become: true
+  notify: restart docker
+
