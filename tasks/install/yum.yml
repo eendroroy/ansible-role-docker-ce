@@ -1,5 +1,5 @@
 ---
-- name: Install docker-ce {{ ansible_distribution }}-{{ ansible_distribution_release }}
+- name: Install docker-ce [{{ ansible_os_family }}]
   yum:
     name: '{{ item }}'
     state: installed

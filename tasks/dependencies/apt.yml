@@ -1,5 +1,5 @@
 ---
-- name: Remove previous version from {{ ansible_distribution }}-{{ ansible_distribution_release }}
+- name: Remove previous version [{{ ansible_os_family }}]
   apt:
     name: '{{ item }}'
     state: removed
@@ -20,7 +20,7 @@
 - debug:
     var: revision.stdout
 
-- name: Install dependencies for {{ ansible_distribution }}-{{ ansible_distribution_release }}
+- name: Install dependencies [{{ ansible_os_family }}]
   apt:
     name: '{{ item }}'
     state: installed
