@@ -6,6 +6,8 @@
   roles:
     - { role: ../ansible-role-docker-ce/vagrant/initial }
 
-- hosts: vagrant
+- name: Role test [docker-ce]
+  hosts: vagrant
+
   roles:
     - { role: ../ansible-role-docker-ce }
