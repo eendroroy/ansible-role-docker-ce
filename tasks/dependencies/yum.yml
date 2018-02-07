@@ -3,7 +3,7 @@
   yum:
     name: '{{ item }}'
     state: installed
-    update_cache: yes
+    update_cache: true
   with_items:
     - yum-utils
     - device-mapper-persistent-data
@@ -14,7 +14,7 @@
   yum:
     name: '{{ item }}'
     state: removed
-    update_cache: yes
+    update_cache: true
   with_items:
     - docker
     - docker-common
@@ -23,8 +23,7 @@
   become: true
 
 - name: Add docker repository
-  yum_repository:
-    name: docker
-    description: docker YUM repo
-    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
-    enabled: yes
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+  become: true
