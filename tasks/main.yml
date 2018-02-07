@@ -1,13 +1,12 @@
 ---
-- include_tasks: dependencies/apt.yml
+- import_tasks: dependencies/apt.yml
   when: ansible_os_family == 'Debian'
 
-- include_tasks: dependencies/yum.yml
+- import_tasks: dependencies/yum.yml
   when: ansible_os_family == 'RedHat'
 
-- include_tasks: install/apt.yml
+- import_tasks: install/apt.yml
   when: ansible_os_family == 'Debian'
 
-- include_tasks: install/yum.yml
+- import_tasks: install/yum.yml
   when: ansible_os_family == 'RedHat'
-
