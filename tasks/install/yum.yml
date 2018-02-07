@@ -3,9 +3,8 @@
   yum:
     name: '{{ item }}'
     state: installed
-    update_cache: yes
+    update_cache: true
   with_items:
       - docker-ce
   become: true
   notify: restart docker
-

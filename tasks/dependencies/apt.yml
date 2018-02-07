@@ -3,8 +3,8 @@
   apt:
     name: '{{ item }}'
     state: removed
-    force: yes
-    update_cache: yes
+    force: true
+    update_cache: true
     cache_valid_time: 3600
   with_items:
     - docker
@@ -15,14 +15,14 @@
 - name: Determine revision
   raw: "echo -n `uname -r`"
   register: revision
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Install dependencies [{{ ansible_os_family }}]
   apt:
     name: '{{ item }}'
     state: installed
-    force: yes
-    update_cache: yes
+    force: true
+    update_cache: true
     cache_valid_time: 3600
   with_items:
     - apt-transport-https

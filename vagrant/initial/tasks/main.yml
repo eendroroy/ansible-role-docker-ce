@@ -2,12 +2,12 @@
 - name: Determine distribution Debian
   raw: lsb_release -a 2>/dev/null | grep Codename | awk '{printf("%s"), $2}'
   register: release
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Determine distribution RHEL
   raw: cat /etc/os-release | grep "ID=" | head -1 | tr '"' ' ' | awk '{gsub("ID=","",$NF); printf("%s"), $NF}'
   register: release
-  ignore_errors: yes
+  ignore_errors: true
 
 - debug:
     var: release.stdout
