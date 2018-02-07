@@ -1,6 +1,10 @@
 ---
-- hosts: localhost
+- name: Role test [docker-ce]
+  hosts: localhost
   connection: local
-  roles:
-    - { role: ../../ansible-role-docker-ce }
 
+  vars:
+    - pyenv_env: local
+
+  roles:
+    - { role: ../ansible-role-docker-ce }
