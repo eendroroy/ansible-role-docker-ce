@@ -7,12 +7,6 @@ Vagrant.configure("2") do |config|
   	vb.memory = 512
   end
 
-  config.vm.provision "shell", inline: <<-SHELL
-    sed 's|http://archive.ubuntu.com/ubuntu|http://mirror.amberit.com.bd/ubuntu-archive|g' -i /etc/apt/sources.list
-    apt-get update || true
-    yum update || true
-  SHELL
-
   config.vm.define 'trusty' do |trusty|
     trusty.vm.box = "ubuntu/trusty64"
     trusty.vm.box_check_update = false
